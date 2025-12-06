@@ -1,0 +1,23 @@
+# Dependencies
+node_modules
+.pnp.*
+
+# Production
+dist
+.astro
+
+# Logs
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Env
+.env
+.env.*.local
+.env.local
+
+# Tooling
+.DS_Store
+.idea
+.vscode/*
+!.vscode/extensions.json

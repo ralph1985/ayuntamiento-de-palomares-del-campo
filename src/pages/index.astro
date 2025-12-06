@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Inicio | Ayuntamiento de Palomares del Campo">
+  <div class="space-y-8">
+    <section class="space-y-4">
+      <h1 class="text-3xl font-bold text-slate-900">
+        Bienvenidos a Palomares del Campo
+      </h1>
+      <p class="max-w-2xl text-lg text-slate-700">
+        Este es el punto de partida para el nuevo sitio municipal. El objetivo es
+        mostrar la información esencial con un diseño sencillo y en construcción.
+      </p>
+    </section>
+
+    <section class="grid gap-4 md:grid-cols-3">
+      <article class="rounded-xl border border-slate-200 bg-white/60 p-4 shadow-sm">
+        <h2 class="text-base font-semibold text-slate-900">Servicios básicos</h2>
+        <p class="text-sm text-slate-700">
+          Horarios de atención y gestiones habituales para vecinos y visitantes.
+        </p>
+      </article>
+      <article class="rounded-xl border border-slate-200 bg-white/60 p-4 shadow-sm">
+        <h2 class="text-base font-semibold text-slate-900">Próximas novedades</h2>
+        <p class="text-sm text-slate-700">
+          Información sobre noticias locales y próximos eventos culturales.
+        </p>
+      </article>
+      <article class="rounded-xl border border-slate-200 bg-white/60 p-4 shadow-sm">
+        <h2 class="text-base font-semibold text-slate-900">Contacto rápido</h2>
+        <p class="text-sm text-slate-700">
+          Correo y teléfono del ayuntamiento para consultas inmediatas.
+        </p>
+      </article>
+    </section>
+  </div>
+</BaseLayout>

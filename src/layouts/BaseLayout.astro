@@ -1,0 +1,36 @@
+---
+import '../styles/global.css';
+
+const { title = 'Ayuntamiento de Palomares del Campo' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+  </head>
+  <body class="flex min-h-screen flex-col bg-slate-50 font-sans text-slate-900">
+    <header class="bg-sky-900 text-white">
+      <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+        <p class="text-lg font-semibold leading-none">
+          Ayuntamiento de Palomares del Campo
+        </p>
+        <span class="text-sm uppercase tracking-wide">Sitio oficial</span>
+      </div>
+    </header>
+
+    <main class="flex-1">
+      <div class="mx-auto max-w-5xl px-6 py-10">
+        <slot />
+      </div>
+    </main>
+
+    <footer class="bg-emerald-700 text-white">
+      <div class="mx-auto max-w-5xl px-6 py-6 text-sm">
+        © {new Date().getFullYear()} Ayuntamiento de Palomares del Campo
+      </div>
+    </footer>
+  </body>
+</html>
