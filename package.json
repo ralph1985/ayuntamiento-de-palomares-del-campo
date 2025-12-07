@@ -6,16 +6,19 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "test": "vitest run",
+    "test:unit": "vitest run"
   },
   "dependencies": {
     "astro": "5.16.0",
-    "@project-manager/lit-modal": "https://raw.githubusercontent.com/ralph1985/project-manager/main/artifacts/project-manager-lit-modal-0.2.1.tgz"
+    "@project-manager/pm-modal": "https://raw.githubusercontent.com/ralph1985/project-manager/main/artifacts/project-manager-pm-modal-0.4.0.tgz"
   },
   "devDependencies": {
     "autoprefixer": "10.4.22",
     "prettier": "3.6.2",
     "prettier-plugin-astro": "0.14.1",
-    "tailwindcss": "3.4.15"
+    "tailwindcss": "3.4.15",
+    "vitest": "4.0.7"
   }
 }

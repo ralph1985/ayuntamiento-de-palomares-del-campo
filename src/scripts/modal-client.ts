@@ -1,6 +1,6 @@
-import '@project-manager/lit-modal';
+import '@project-manager/pm-modal';
 
-const initModal = () => {
+export const initModal = () => {
   const modal = document.querySelector('#demo-modal') as any;
   const openButtons = [
     document.querySelector('#open-modal'),
