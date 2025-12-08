@@ -1,8 +1,0 @@
----
-import SeoDetail from '../../../components/seo/SeoDetail.astro';
-
-const { post } = Astro.params;
-const slug = Array.isArray(post) ? post.join('/') : post ?? 'news';
----
-
-<SeoDetail locale="en" translationKey="seoRoutes.news.detail" slug={slug} />
