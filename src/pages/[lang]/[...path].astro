@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import {
+  buildExtraPaths,
+  buildStaticPaths,
+  galleryEntries,
+  locales,
+  staticPages,
+  t,
+  type Locale,
+} from '../../routes.config';
+
+type PathParam = { lang: Locale; path: string };
+
+type Props =
+  | { locale: Locale; type: 'static'; pageId: string }
+  | { locale: Locale; type: 'extra'; slug: string; id: string };
+
+export function getStaticPaths() {
+  const staticPaths = buildStaticPaths().map(entry => ({
+    params: { lang: entry.params.lang, path: entry.params.path.join('/') },
+    props: entry.props,
+  }));
+
+  const extraPaths = buildExtraPaths().map(entry => ({
+    params: { lang: entry.params.lang, path: entry.params.path.join('/') },
+    props: entry.props,
+  }));
+
+  return [...staticPaths, ...extraPaths];
+}
+
+const props = Astro.props as Props;
+const locale = props.locale;
+
+let title = '';
+let description = '';
+
+if (props.type === 'static') {
+  const page = staticPages.find(entry => entry.id === props.pageId);
+  const key = page?.id ?? '';
+  title = t(locale, `pages.${key}.title`);
+  description = t(locale, `pages.${key}.description`);
+}
+
+if (props.type === 'extra') {
+  const entry = galleryEntries.find(
+    item => item.path[locale].split('/').pop() === props.slug
+  );
+  title = t(locale, `gallery.items.${entry?.id ?? props.slug}.title`);
+  description = t(locale, `gallery.items.${entry?.id ?? props.slug}.description`);
+}
+---
+
+<BaseLayout title={`${title} | Ayuntamiento de Palomares del Campo`} locale={locale}>
+  <section class="space-y-4">
+    <p class="text-sm font-semibold uppercase tracking-wide text-sky-800">
+      {props.type === 'extra'
+        ? t(locale, 'gallery.tag')
+        : t(locale, `pages.${props.type === 'static' ? props.pageId : ''}.label`)}
+    </p>
+    <h1 class="text-3xl font-bold text-slate-900">{title}</h1>
+    <p class="max-w-2xl text-slate-700">{description}</p>
+  </section>
+</BaseLayout>

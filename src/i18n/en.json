@@ -1,0 +1,11 @@
+{
+  "siteTitle": "Palomares del Campo City Council",
+  "nav": {
+    "home": "Home",
+    "galleries": "Galleries"
+  },
+  "galleries": {
+    "title": "Photo galleries",
+    "description": "Image selections for municipal projects. Placeholder copy for the English route."
+  }
+}

@@ -1,0 +1,15 @@
+export const navLinksEs = [
+  { href: '/es', label: 'Inicio' },
+  { href: '/es/sobre-el-pueblo', label: 'Sobre el pueblo' },
+  { href: '/es/contacto', label: 'Contacto' },
+  { href: '/es/noticias', label: 'Noticias' },
+  { href: '/es/bandos', label: 'Bandos' },
+  { href: '/es/galerias', label: 'Galerías' },
+  { href: '/es/galerias/galeria-1', label: 'Galería 1' },
+  { href: '/es/galerias/galeria-2', label: 'Galería 2' },
+  { href: '/es/testimonios', label: 'Testimonios' },
+  { href: '/es/buscar', label: 'Buscar' },
+  { href: '/es/aviso-legal', label: 'Aviso legal' },
+  { href: '/es/politica-de-cookies', label: 'Cookies' },
+  { href: '/es/politica-de-privacidad', label: 'Privacidad' },
+];

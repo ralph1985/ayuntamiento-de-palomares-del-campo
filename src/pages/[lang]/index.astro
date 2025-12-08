@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { locales, t, type Locale } from '../../routes.config';
+
+type Props = {
+  locale: Locale;
+};
+
+export function getStaticPaths() {
+  return locales.map(locale => ({
+    params: { lang: locale },
+    props: { locale },
+  }));
+}
+
+const { locale } = Astro.props as Props;
+const title = t(locale, 'pages.home.title');
+const description = t(locale, 'pages.home.description');
+---
+
+<BaseLayout title={`${title} | Ayuntamiento de Palomares del Campo`} locale={locale}>
+  <section class="space-y-4">
+    <p class="text-sm font-semibold uppercase tracking-wide text-sky-800">
+      {t(locale, 'pages.home.label')}
+    </p>
+    <h1 class="text-3xl font-bold text-slate-900">
+      {locale === 'es' ? 'Bienvenidos a Palomares del Campo' : 'Welcome to Palomares del Campo'}
+    </h1>
+    <p class="max-w-2xl text-slate-700">{description}</p>
+  </section>
+
+  <section class="mt-8 space-y-3 rounded-xl border border-slate-200 bg-white/60 p-4 shadow-sm">
+    <div class="flex flex-wrap items-center gap-3">
+      <button
+        id="open-modal"
+        class="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
+        type="button"
+      >
+        {locale === 'es' ? 'Abrir aviso' : 'Open notice'}
+      </button>
+      <button
+        id="open-modal-muted"
+        class="rounded-lg border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-800 transition hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500"
+        type="button"
+      >
+        {locale === 'es' ? 'Aviso suave' : 'Soft notice'}
+      </button>
+      <button
+        id="close-modal"
+        class="rounded-lg border border-slate-200 px-3.5 py-2 text-sm font-semibold text-slate-800 transition hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500"
+        type="button"
+      >
+        {locale === 'es' ? 'Cerrar' : 'Close'}
+      </button>
+    </div>
+
+    <pm-modal id="demo-modal" heading={locale === 'es' ? 'Aviso para vecinos' : 'Notice for residents'}>
+      <p class="text-slate-800">
+        {locale === 'es'
+          ? 'Ejemplo de modal compartido para el sitio. Sustituye este texto con contenido real.'
+          : 'Shared modal example for the site. Replace this text with real content.'}
+      </p>
+      <div class="mt-3 flex flex-wrap gap-2 text-sm text-slate-700">
+        <span class="rounded-full bg-emerald-50 px-3 py-1 font-medium text-emerald-800">
+          {locale === 'es' ? 'Participa' : 'Join in'}
+        </span>
+        <span class="rounded-full bg-sky-50 px-3 py-1 font-medium text-sky-800">
+          {locale === 'es' ? 'Cultura' : 'Culture'}
+        </span>
+        <span class="rounded-full bg-orange-50 px-3 py-1 font-medium text-orange-800">
+          {locale === 'es' ? 'Comunicado rápido' : 'Quick notice'}
+        </span>
+      </div>
+    </pm-modal>
+  </section>
+</BaseLayout>

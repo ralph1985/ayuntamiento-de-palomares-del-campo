@@ -1,0 +1,113 @@
+{
+  "siteTitle": "Palomares del Campo City Council",
+  "pages": {
+    "home": {
+      "label": "Home",
+      "title": "Home",
+      "description": "Welcome to Palomares del Campo."
+    },
+    "about": {
+      "label": "About",
+      "title": "About the town",
+      "description": "Town profile and context."
+    },
+    "contact": {
+      "label": "Contact",
+      "title": "Contact",
+      "description": "Contact form coming soon."
+    },
+    "news": {
+      "label": "News",
+      "title": "News",
+      "description": "News listing."
+    },
+    "notices": {
+      "label": "Notices",
+      "title": "Notices",
+      "description": "Official notices."
+    },
+    "galleries": {
+      "label": "Galleries",
+      "title": "Photo galleries",
+      "description": "Photo selections for municipal projects."
+    },
+    "testimonials": {
+      "label": "Testimonials",
+      "title": "Testimonials",
+      "description": "Voices in preparation."
+    },
+    "search": {
+      "label": "Search",
+      "title": "Search",
+      "description": "Search in progress."
+    },
+    "legal": {
+      "label": "Legal notice",
+      "title": "Legal notice",
+      "description": "Legal copy pending."
+    },
+    "cookies": {
+      "label": "Cookies",
+      "title": "Cookies policy",
+      "description": "Cookies policy placeholder."
+    },
+    "privacy": {
+      "label": "Privacy",
+      "title": "Privacy policy",
+      "description": "Privacy copy placeholder."
+    }
+  },
+  "seoRoutes": {
+    "notices": {
+      "list": {
+        "title": "Notices | Palomares del Campo",
+        "label": "Notices",
+        "heading": "Official notices",
+        "description": "English notices route under {{path}}. Placeholder content.",
+        "path": "/en/notices"
+      },
+      "detail": {
+        "title": "Notice detail | Palomares del Campo",
+        "label": "Notice (EN)",
+        "heading": "Notice placeholder",
+        "slugPrefix": "Detected slug",
+        "slugHint": "Replace with real notice content."
+      }
+    },
+    "news": {
+      "list": {
+        "title": "News | Palomares del Campo",
+        "label": "News",
+        "heading": "News listing",
+        "description": "English news route under {{path}}. Placeholder until real entries are wired.",
+        "path": "/en/news"
+      },
+      "detail": {
+        "title": "News detail | Palomares del Campo",
+        "label": "News (EN)",
+        "heading": "News entry placeholder",
+        "slugPrefix": "Detected slug",
+        "slugHint": "Replace with real content when entries are generated."
+      }
+    },
+    "notFound": {
+      "title": "Page not found | Palomares del Campo",
+      "label": "Error 404",
+      "heading": "Route not available",
+      "description": "Placeholder 404 for English routes under /en."
+    }
+  },
+  "gallery": {
+    "tag": "Gallery",
+    "items": {
+      "gallery-1": {
+        "title": "Gallery 1 placeholder",
+        "description": "Placeholder for gallery 1 until photos and copy are ready."
+      },
+      "gallery-2": {
+        "title": "Gallery 2 placeholder",
+        "description": "Placeholder for gallery 2 until photos and copy are ready."
+      }
+    }
+  }
+}

@@ -1,3 +1,4 @@
+// @vitest-environment jsdom
 import { initModal } from './modal-client';
 
 type FakeModal = HTMLElement & {

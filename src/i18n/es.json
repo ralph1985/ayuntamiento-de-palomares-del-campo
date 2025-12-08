@@ -1,0 +1,11 @@
+{
+  "siteTitle": "Ayuntamiento de Palomares del Campo",
+  "nav": {
+    "home": "Inicio",
+    "galleries": "Galerías"
+  },
+  "galleries": {
+    "title": "Galerías fotográficas",
+    "description": "Selección de imágenes de los proyectos municipales. Contenido de prueba para la ruta en español."
+  }
+}

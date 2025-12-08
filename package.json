@@ -8,13 +8,16 @@
     "build": "astro build",
     "preview": "astro preview",
     "test": "vitest run",
-    "test:unit": "vitest run"
+    "test:unit": "vitest run",
+    "test:watch": "vitest --ui --open"
   },
   "dependencies": {
-    "astro": "5.16.0",
-    "@project-manager/pm-modal": "https://raw.githubusercontent.com/ralph1985/project-manager/main/artifacts/project-manager-pm-modal-0.4.0.tgz"
+    "@project-manager/pm-i18n": "https://raw.githubusercontent.com/ralph1985/project-manager/main/artifacts/project-manager-pm-i18n-0.2.0.tgz",
+    "@project-manager/pm-modal": "https://raw.githubusercontent.com/ralph1985/project-manager/main/artifacts/project-manager-pm-modal-0.4.0.tgz",
+    "astro": "5.16.0"
   },
   "devDependencies": {
+    "@vitest/ui": "4.0.7",
     "autoprefixer": "10.4.22",
     "prettier": "3.6.2",
     "prettier-plugin-astro": "0.14.1",

@@ -1,0 +1,113 @@
+{
+  "siteTitle": "Ayuntamiento de Palomares del Campo",
+  "pages": {
+    "home": {
+      "label": "Inicio",
+      "title": "Inicio",
+      "description": "Bienvenidos a Palomares del Campo."
+    },
+    "about": {
+      "label": "Sobre el pueblo",
+      "title": "Sobre el pueblo",
+      "description": "Perfil municipal y contexto."
+    },
+    "contact": {
+      "label": "Contacto",
+      "title": "Contacto",
+      "description": "Formulario de contacto en preparación."
+    },
+    "news": {
+      "label": "Noticias",
+      "title": "Noticias",
+      "description": "Listado de noticias."
+    },
+    "notices": {
+      "label": "Bandos",
+      "title": "Bandos",
+      "description": "Avisos municipales."
+    },
+    "galleries": {
+      "label": "Galerías",
+      "title": "Galerías fotográficas",
+      "description": "Selección de imágenes de los proyectos."
+    },
+    "testimonials": {
+      "label": "Testimonios",
+      "title": "Opiniones",
+      "description": "Opiniones en preparación."
+    },
+    "search": {
+      "label": "Buscar",
+      "title": "Buscador",
+      "description": "Buscador en construcción."
+    },
+    "legal": {
+      "label": "Aviso legal",
+      "title": "Aviso legal",
+      "description": "Texto legal pendiente."
+    },
+    "cookies": {
+      "label": "Cookies",
+      "title": "Política de cookies",
+      "description": "Política de cookies pendiente."
+    },
+    "privacy": {
+      "label": "Privacidad",
+      "title": "Política de privacidad",
+      "description": "Texto de privacidad pendiente."
+    }
+  },
+  "seoRoutes": {
+    "notices": {
+      "list": {
+        "title": "Bandos | Ayuntamiento de Palomares del Campo",
+        "label": "Bandos (ES)",
+        "heading": "Avisos municipales",
+        "description": "Ruta española para bandos en {{path}}. Texto de prueba.",
+        "path": "/es/bandos"
+      },
+      "detail": {
+        "title": "Detalle de bando | Ayuntamiento de Palomares del Campo",
+        "label": "Bando (ES)",
+        "heading": "Bando en preparación",
+        "slugPrefix": "Slug detectado en español",
+        "slugHint": "Reemplaza este contenido con el texto real cuando esté listo."
+      }
+    },
+    "news": {
+      "list": {
+        "title": "Noticias | Ayuntamiento de Palomares del Campo",
+        "label": "Noticias (ES)",
+        "heading": "Listado de noticias",
+        "description": "Placeholder de noticias en español bajo {{path}}.",
+        "path": "/es/noticias"
+      },
+      "detail": {
+        "title": "Detalle de noticia | Ayuntamiento de Palomares del Campo",
+        "label": "Noticia (ES)",
+        "heading": "Noticia pendiente",
+        "slugPrefix": "Slug detectado en español",
+        "slugHint": "Sustituye por contenido real."
+      }
+    },
+    "notFound": {
+      "title": "Página no encontrada | Ayuntamiento de Palomares del Campo",
+      "label": "Error 404 (ES)",
+      "heading": "Ruta no disponible",
+      "description": "Placeholder de 404 para rutas bajo /es."
+    }
+  },
+  "gallery": {
+    "tag": "Galería",
+    "items": {
+      "gallery-1": {
+        "title": "Galería 1 en borrador",
+        "description": "Placeholder de la galería 1 hasta añadir fotos y texto."
+      },
+      "gallery-2": {
+        "title": "Galería 2 en borrador",
+        "description": "Placeholder de la galería 2 hasta añadir fotos y texto."
+      }
+    }
+  }
+}

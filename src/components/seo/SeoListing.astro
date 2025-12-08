@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getNavLinks, t, type Locale } from '../../routes.config';
+
+type Props = {
+  locale: Locale;
+  translationKey: string;
+  stack?: '3' | '4';
+};
+
+const { locale, translationKey, stack = '4' } = Astro.props as Props;
+
+const navLinks = getNavLinks(locale);
+const title = t(locale, `${translationKey}.title`);
+const label = t(locale, `${translationKey}.label`);
+const heading = t(locale, `${translationKey}.heading`);
+
+const descriptionKey = `${translationKey}.description`;
+const rawDescription = t(locale, descriptionKey);
+
+const pathKey = `${translationKey}.path`;
+const rawPath = t(locale, pathKey);
+const hasPath = rawPath !== pathKey;
+const path = hasPath ? rawPath : null;
+
+let descriptionBefore = '';
+let descriptionAfter = '';
+
+if (path && rawDescription.includes('{{path}}')) {
+  const [before, ...rest] = rawDescription.split('{{path}}');
+  descriptionBefore = before;
+  descriptionAfter = rest.join('{{path}}');
+}
+
+const spacingClass = stack === '3' ? 'space-y-3' : 'space-y-4';
+const paragraphClass = 'max-w-2xl text-slate-700';
+---
+
+<BaseLayout title={title} locale={locale} navLinks={navLinks}>
+  <section class={spacingClass}>
+    <p class="text-sm font-semibold uppercase tracking-wide text-sky-800">{label}</p>
+    <h1 class="text-3xl font-bold text-slate-900">{heading}</h1>
+    <p class={paragraphClass}>
+      {path && rawDescription.includes('{{path}}') ? (
+        <>
+          {descriptionBefore}
+          <code>{path}</code>
+          {descriptionAfter}
+        </>
+      ) : (
+        rawDescription
+      )}
+    </p>
+  </section>
+</BaseLayout>

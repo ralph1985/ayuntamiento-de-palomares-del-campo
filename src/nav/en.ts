@@ -1,0 +1,15 @@
+export const navLinksEn = [
+  { href: '/en', label: 'Home' },
+  { href: '/en/about', label: 'About' },
+  { href: '/en/contact', label: 'Contact' },
+  { href: '/en/news', label: 'News' },
+  { href: '/en/notices', label: 'Notices' },
+  { href: '/en/galleries', label: 'Galleries' },
+  { href: '/en/galleries/gallery-1', label: 'Gallery 1' },
+  { href: '/en/galleries/gallery-2', label: 'Gallery 2' },
+  { href: '/en/testimonials', label: 'Testimonials' },
+  { href: '/en/search', label: 'Search' },
+  { href: '/en/legal-notice', label: 'Legal notice' },
+  { href: '/en/cookies-policy', label: 'Cookies' },
+  { href: '/en/privacy-policy', label: 'Privacy' },
+];

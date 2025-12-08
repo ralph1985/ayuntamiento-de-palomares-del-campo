@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getNavLinks, t, type Locale } from '../../routes.config';
+
+type Props = {
+  locale: Locale;
+  translationKey: string;
+  slug: string;
+};
+
+const { locale, translationKey, slug } = Astro.props as Props;
+
+const navLinks = getNavLinks(locale);
+const title = t(locale, `${translationKey}.title`);
+const label = t(locale, `${translationKey}.label`);
+const heading = t(locale, `${translationKey}.heading`);
+
+const slugPrefix = t(locale, `${translationKey}.slugPrefix`);
+const slugHintKey = `${translationKey}.slugHint`;
+const slugHint = t(locale, slugHintKey);
+const hasSlugHint = slugHint !== slugHintKey;
+---
+
+<BaseLayout title={title} locale={locale} navLinks={navLinks}>
+  <section class="space-y-3">
+    <p class="text-sm font-semibold uppercase tracking-wide text-sky-800">{label}</p>
+    <h1 class="text-3xl font-bold text-slate-900">{heading}</h1>
+    <p class="text-slate-700">
+      {slugPrefix}: <strong>{slug}</strong>
+      {hasSlugHint ? `. ${slugHint}` : ''}
+    </p>
+  </section>
+</BaseLayout>

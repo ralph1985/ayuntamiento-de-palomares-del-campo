@@ -1,11 +1,26 @@
 ---
 import '../styles/global.css';
+import { getNavLinks, locales, translatePath, type Locale } from '../routes.config';
 
-const { title = 'Ayuntamiento de Palomares del Campo' } = Astro.props;
+type NavLink = { href: string; label: string };
+
+const {
+  title = 'Ayuntamiento de Palomares del Campo',
+  locale = 'es',
+  navLinks = getNavLinks(locale as Locale),
+} = Astro.props;
+
+const currentPath = Astro.url?.pathname ?? '/';
+
+const languageLinks = locales.map(code => ({
+  code,
+  label: code.toUpperCase(),
+  href: translatePath(currentPath, code),
+}));
 ---
 
 <!doctype html>
-<html lang="es" class="h-full">
+<html lang={locale} class="h-full">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -28,8 +43,33 @@ const { title = 'Ayuntamiento de Palomares del Campo' } = Astro.props;
     </main>
 
     <footer class="bg-emerald-700 text-white">
-      <div class="mx-auto max-w-5xl px-6 py-6 text-sm">
-        © {new Date().getFullYear()} Ayuntamiento de Palomares del Campo
+      <div class="mx-auto max-w-5xl px-6 py-6 space-y-3 text-sm">
+        <div class="flex flex-wrap gap-3">
+          <span class="font-semibold uppercase tracking-wide text-emerald-50">
+            Menú de prueba
+          </span>
+          <nav class="flex flex-wrap gap-3">
+            {navLinks.map(link => (
+              <a class="hover:underline" href={link.href}>{link.label}</a>
+            ))}
+          </nav>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="font-semibold uppercase tracking-wide text-emerald-50">
+            Idioma
+          </span>
+          <nav class="flex items-center gap-2">
+            {languageLinks.map(lang => (
+              <a
+                class={`rounded px-2 py-1 transition hover:bg-emerald-600 ${locale === lang.code ? 'bg-emerald-600' : 'bg-emerald-800/40'}`}
+                href={lang.href}
+              >
+                {lang.label}
+              </a>
+            ))}
+          </nav>
+        </div>
+        <div>© {new Date().getFullYear()} Ayuntamiento de Palomares del Campo</div>
       </div>
     </footer>
   </body>

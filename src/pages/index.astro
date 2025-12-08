@@ -1,108 +1,18 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import modalClient from '../scripts/modal-client.ts?url';
+export const prerender = false;
+
+const supported = ['es', 'en'];
+
+const header = Astro.request.headers.get('accept-language') ?? '';
+const locales = header
+  .split(',')
+  .map(part => part.trim().split(';')[0] || '')
+  .filter(Boolean)
+  .map(code => code.split('-')[0].toLowerCase());
+
+const target =
+  locales.find(code => supported.includes(code)) ??
+  (locales.length ? 'en' : 'en');
+
+return Astro.redirect(`/${target}`);
 ---
-
-<BaseLayout title="Inicio | Ayuntamiento de Palomares del Campo">
-  <div class="space-y-8">
-    <section class="space-y-4">
-      <h1 class="text-3xl font-bold text-slate-900">
-        Bienvenidos a Palomares del Campo
-      </h1>
-      <p class="max-w-2xl text-lg text-slate-700">
-        Este es el punto de partida para el nuevo sitio municipal. El objetivo es
-        mostrar la información esencial con un diseño sencillo y en construcción.
-      </p>
-    </section>
-
-    <section class="grid gap-4 md:grid-cols-3">
-      <article class="rounded-xl border border-slate-200 bg-white/60 p-4 shadow-sm">
-        <h2 class="text-base font-semibold text-slate-900">Servicios básicos</h2>
-        <p class="text-sm text-slate-700">
-          Horarios de atención y gestiones habituales para vecinos y visitantes.
-        </p>
-      </article>
-      <article class="rounded-xl border border-slate-200 bg-white/60 p-4 shadow-sm">
-        <h2 class="text-base font-semibold text-slate-900">Próximas novedades</h2>
-        <p class="text-sm text-slate-700">
-          Información sobre noticias locales y próximos eventos culturales.
-        </p>
-      </article>
-      <article class="rounded-xl border border-slate-200 bg-white/60 p-4 shadow-sm">
-        <h2 class="text-base font-semibold text-slate-900">Contacto rápido</h2>
-        <p class="text-sm text-slate-700">
-          Correo y teléfono del ayuntamiento para consultas inmediatas.
-        </p>
-      </article>
-    </section>
-
-    <section class="rounded-xl border border-slate-200 bg-white/70 p-6 shadow-sm">
-      <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-        <div class="space-y-1">
-          <p class="text-xs font-semibold uppercase tracking-widest text-sky-800">
-            Demo de componentes
-          </p>
-          <h2 class="text-xl font-bold text-slate-900">
-            Modal compartida con LitElement
-          </h2>
-          <p class="max-w-2xl text-sm text-slate-700">
-            Este ejemplo carga el paquete local <code>@project-manager/pm-modal</code> y
-            abre un aviso municipal desde un botón.
-          </p>
-        </div>
-        <div class="flex gap-2">
-          <button
-            id="open-modal"
-            class="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
-            type="button"
-          >
-            Abrir aviso
-          </button>
-          <button
-            id="open-modal-muted"
-            class="rounded-lg border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-800 transition hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500"
-            type="button"
-          >
-            Aviso suave
-          </button>
-        </div>
-      </div>
-
-      <pm-modal id="demo-modal" heading="Aviso para vecinos">
-        <p class="text-slate-800">
-          El ayuntamiento prepara un calendario de actividades para este mes. Si quieres
-          recibir actualizaciones, deja tu correo en el formulario de contacto o
-          acércate a la oficina de atención ciudadana.
-        </p>
-        <div class="mt-3 flex flex-wrap gap-2 text-sm text-slate-700">
-          <span class="rounded-full bg-emerald-50 px-3 py-1 font-medium text-emerald-800">
-            Participa
-          </span>
-          <span class="rounded-full bg-sky-50 px-3 py-1 font-medium text-sky-800">
-            Cultura
-          </span>
-          <span class="rounded-full bg-orange-50 px-3 py-1 font-medium text-orange-800">
-            Comunicado rápido
-          </span>
-        </div>
-        <div slot="footer" class="flex gap-2">
-          <button
-            id="close-modal"
-            class="rounded-lg border border-slate-200 px-3.5 py-2 text-sm font-semibold text-slate-800 transition hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500"
-            type="button"
-          >
-            Cerrar
-          </button>
-          <a
-            href="#contacto"
-            class="rounded-lg bg-emerald-600 px-3.5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
-          >
-            Ir a contacto
-          </a>
-        </div>
-      </pm-modal>
-    </section>
-
-    <script type="module" src={modalClient}></script>
-  </div>
-</BaseLayout>
