@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #0f172a;
+  background-color: #f8fafc;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+:root::view-transition-old(page),
+:root::view-transition-new(page) {
+  mix-blend-mode: normal;
+  animation-duration: 260ms;
+  animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+  animation-fill-mode: both;
+}
+
+:root::view-transition-old(page) {
+  animation-name: slide-out-left;
+}
+
+:root::view-transition-new(page) {
+  animation-name: slide-in-left;
+}
+
+@keyframes slide-out-left {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+}
+
+@keyframes slide-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root::view-transition-old(page),
+  :root::view-transition-new(page) {
+    animation: none;
+  }
+}

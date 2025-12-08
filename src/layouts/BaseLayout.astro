@@ -1,5 +1,6 @@
 ---
-import '../styles/global.css';
+import '../styles/global.scss';
+import { ViewTransitions } from 'astro:transitions';
 import { getNavLinks, locales, translatePath, type Locale } from '../routes.config';
 
 type NavLink = { href: string; label: string };
@@ -27,6 +28,7 @@ const languageLinks = locales.map(code => ({
     <title>{title}</title>
   </head>
   <body class="flex min-h-screen flex-col bg-slate-50 font-sans text-slate-900">
+    <ViewTransitions />
     <header class="bg-sky-900 text-white">
       <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
         <p class="text-lg font-semibold leading-none">
@@ -36,7 +38,7 @@ const languageLinks = locales.map(code => ({
       </div>
     </header>
 
-    <main class="flex-1">
+    <main class="flex-1" transition:animate style="view-transition-name: page">
       <div class="mx-auto max-w-5xl px-6 py-10">
         <slot />
       </div>
