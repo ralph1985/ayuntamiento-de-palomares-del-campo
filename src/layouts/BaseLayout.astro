@@ -8,7 +8,7 @@ type NavLink = { href: string; label: string };
 const {
   title = 'Ayuntamiento de Palomares del Campo',
   locale = 'es',
-  navLinks = getNavLinks(locale as Locale),
+  navLinks = getNavLinks(locale as Locale, { includeHome: true }),
 } = Astro.props;
 
 const currentPath = Astro.url?.pathname ?? '/';
